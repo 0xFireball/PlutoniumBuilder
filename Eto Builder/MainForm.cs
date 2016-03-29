@@ -318,12 +318,14 @@ namespace Eto_Builder {
 			// 
 			this.menuItemNew.Index = 0;
 			this.menuItemNew.Text = "&New";
+			this.menuItemNew.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
 			this.menuItemNew.Click += new System.EventHandler(this.menuItemNew_Click);
 			// 
 			// menuItemOpen
 			// 
 			this.menuItemOpen.Index = 1;
 			this.menuItemOpen.Text = "&Open...";
+			this.menuItemOpen.Shortcut = System.Windows.Forms.Shortcut.CtrlO;
 			this.menuItemOpen.Click += new System.EventHandler(this.menuItemOpen_Click);
 			// 
 			// menuItemSave
@@ -331,6 +333,7 @@ namespace Eto_Builder {
 			this.menuItemSave.Enabled = false;
 			this.menuItemSave.Index = 2;
 			this.menuItemSave.Text = "&Save";
+			this.menuItemSave.Shortcut = System.Windows.Forms.Shortcut.CtrlS;
 			this.menuItemSave.Click += new System.EventHandler(this.menuItemSave_Click);
 			// 
 			// menuItemSaveAs
@@ -338,6 +341,7 @@ namespace Eto_Builder {
 			this.menuItemSaveAs.Enabled = false;
 			this.menuItemSaveAs.Index = 3;
 			this.menuItemSaveAs.Text = "Save &As...";
+			this.menuItemSaveAs.Shortcut = System.Windows.Forms.Shortcut.CtrlShiftS;
 			this.menuItemSaveAs.Click += new System.EventHandler(this.menuItemSaveAs_Click);
 			// 
 			// menuItemExit
