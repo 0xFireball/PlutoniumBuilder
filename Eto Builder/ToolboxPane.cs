@@ -23,9 +23,9 @@ namespace Eto_Builder
 		private EtoDesignerHost.EtoDesignerHost host;
 		private System.Windows.Forms.ListBox listData;
 		private System.Windows.Forms.ListBox listCustomControls;
-		private System.Windows.Forms.ListBox listWindowsForms;
+		private System.Windows.Forms.ListBox listEtoForms;
 		private System.Windows.Forms.ListBox listComponents;
-		private System.Windows.Forms.TabPage tabWindowsForms;
+		private System.Windows.Forms.TabPage tabEtoForms;
 		private System.Windows.Forms.TabPage tabComponents;
 		private System.Windows.Forms.TabPage tabData;
 		private System.Windows.Forms.TabPage tabCustomControls;
@@ -38,7 +38,7 @@ namespace Eto_Builder
 		// dealing with type resolution, but we can only do this since our list of tools
 		// is standard and unchanging.
 		//
-		private Type[] windowsFormsToolTypes =  new Type[] {
+		private Type[] etoFormsToolTypes =  new Type[] {
 													  typeof(System.Windows.Forms.PropertyGrid),
 													  typeof(System.Windows.Forms.Label),
 													  typeof(System.Windows.Forms.LinkLabel),
@@ -232,14 +232,14 @@ namespace Eto_Builder
 		{
 			this.listData = new System.Windows.Forms.ListBox();
 			this.listCustomControls = new System.Windows.Forms.ListBox();
-			this.listWindowsForms = new System.Windows.Forms.ListBox();
+			this.listEtoForms = new System.Windows.Forms.ListBox();
 			this.listComponents = new System.Windows.Forms.ListBox();
-			this.tabWindowsForms = new System.Windows.Forms.TabPage();
+			this.tabEtoForms = new System.Windows.Forms.TabPage();
 			this.tabComponents = new System.Windows.Forms.TabPage();
 			this.tabData = new System.Windows.Forms.TabPage();
 			this.tabCustomControls = new System.Windows.Forms.TabPage();
 			this.tabControl = new System.Windows.Forms.TabControl();
-			this.tabWindowsForms.SuspendLayout();
+			this.tabEtoForms.SuspendLayout();
 			this.tabComponents.SuspendLayout();
 			this.tabData.SuspendLayout();
 			this.tabCustomControls.SuspendLayout();
@@ -274,20 +274,20 @@ namespace Eto_Builder
 			this.listCustomControls.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
 			this.listCustomControls.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
 			// 
-			// listWindowsForms
+			// listEtoForms
 			// 
-			this.listWindowsForms.AllowDrop = true;
-			this.listWindowsForms.BackColor = System.Drawing.Color.LightSlateGray;
-			this.listWindowsForms.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listWindowsForms.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-			this.listWindowsForms.Location = new System.Drawing.Point(0, 0);
-			this.listWindowsForms.Name = "listWindowsForms";
-			this.listWindowsForms.Size = new System.Drawing.Size(280, 508);
-			this.listWindowsForms.TabIndex = 0;
-			this.listWindowsForms.KeyDown += new System.Windows.Forms.KeyEventHandler(this.list_KeyDown);
-			this.listWindowsForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.list_MouseDown);
-			this.listWindowsForms.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
-			this.listWindowsForms.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
+			this.listEtoForms.AllowDrop = true;
+			this.listEtoForms.BackColor = System.Drawing.Color.LightSlateGray;
+			this.listEtoForms.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listEtoForms.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+			this.listEtoForms.Location = new System.Drawing.Point(0, 0);
+			this.listEtoForms.Name = "listEtoForms";
+			this.listEtoForms.Size = new System.Drawing.Size(280, 508);
+			this.listEtoForms.TabIndex = 0;
+			this.listEtoForms.KeyDown += new System.Windows.Forms.KeyEventHandler(this.list_KeyDown);
+			this.listEtoForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.list_MouseDown);
+			this.listEtoForms.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
+			this.listEtoForms.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
 			// 
 			// listComponents
 			// 
@@ -303,16 +303,16 @@ namespace Eto_Builder
 			this.listComponents.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
 			this.listComponents.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
 			// 
-			// tabWindowsForms
+			// tabEtoForms
 			// 
-			this.tabWindowsForms.BackColor = System.Drawing.Color.LightSlateGray;
-			this.tabWindowsForms.Controls.AddRange(new System.Windows.Forms.Control[] {
-																						  this.listWindowsForms});
-			this.tabWindowsForms.Location = new System.Drawing.Point(4, 40);
-			this.tabWindowsForms.Name = "tabWindowsForms";
-			this.tabWindowsForms.Size = new System.Drawing.Size(280, 508);
-			this.tabWindowsForms.TabIndex = 0;
-			this.tabWindowsForms.Text = "Windows Forms";
+			this.tabEtoForms.BackColor = System.Drawing.Color.LightSlateGray;
+			this.tabEtoForms.Controls.AddRange(new System.Windows.Forms.Control[] {
+																						  this.listEtoForms});
+			this.tabEtoForms.Location = new System.Drawing.Point(4, 40);
+			this.tabEtoForms.Name = "tabEtoForms";
+			this.tabEtoForms.Size = new System.Drawing.Size(280, 508);
+			this.tabEtoForms.TabIndex = 0;
+			this.tabEtoForms.Text = "Windows Forms";
 			// 
 			// tabComponents
 			// 
@@ -350,7 +350,7 @@ namespace Eto_Builder
 			// tabControl
 			// 
 			this.tabControl.Controls.AddRange(new System.Windows.Forms.Control[] {
-																					 this.tabWindowsForms,
+																					 this.tabEtoForms,
 																					 this.tabData,
 																					 this.tabComponents,
 																					 this.tabCustomControls});
@@ -376,7 +376,7 @@ namespace Eto_Builder
 			this.Name = "ToolboxPane";
 			this.Size = new System.Drawing.Size(288, 552);
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.ToolboxPane_Paint);
-			this.tabWindowsForms.ResumeLayout(false);
+			this.tabEtoForms.ResumeLayout(false);
 			this.tabComponents.ResumeLayout(false);
 			this.tabData.ResumeLayout(false);
 			this.tabCustomControls.ResumeLayout(false);
@@ -395,7 +395,7 @@ namespace Eto_Builder
 				list.Items.Add(pointer);
 			}
 
-			foreach (Type type in windowsFormsToolTypes)
+			foreach (Type type in etoFormsToolTypes)
 			{
 				ToolboxItem tbi = new ToolboxItem(type);
 				ToolboxBitmapAttribute tba = TypeDescriptor.GetAttributes(type)[typeof(ToolboxBitmapAttribute)] as ToolboxBitmapAttribute;
@@ -403,7 +403,7 @@ namespace Eto_Builder
 				{
 					tbi.Bitmap = (Bitmap)tba.GetImage(type);
 				}
-				listWindowsForms.Items.Add(tbi);
+				listEtoForms.Items.Add(tbi);
 			}
 
 			foreach (Type type in componentsToolTypes)
