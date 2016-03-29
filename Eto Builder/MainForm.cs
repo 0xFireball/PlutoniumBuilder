@@ -671,7 +671,7 @@ namespace Eto_Builder {
 			this.tabControl.Controls.Add(this.tabXML);
 			this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-			this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tabControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabControl.ItemSize = new System.Drawing.Size(120, 25);
 			this.tabControl.Location = new System.Drawing.Point(0, 0);
 			this.tabControl.Name = "tabControl";
@@ -690,7 +690,7 @@ namespace Eto_Builder {
 			this.tabDesign.Controls.Add(this.splitter1);
 			this.tabDesign.Controls.Add(this.toolbox);
 			this.tabDesign.Controls.Add(this.propertyGrid);
-			this.tabDesign.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tabDesign.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabDesign.Location = new System.Drawing.Point(4, 29);
 			this.tabDesign.Name = "tabDesign";
 			this.tabDesign.Size = new System.Drawing.Size(752, 529);
@@ -710,7 +710,7 @@ namespace Eto_Builder {
 			// 
 			this.panelMain.BackColor = System.Drawing.SystemColors.Window;
 			this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.panelMain.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.panelMain.Location = new System.Drawing.Point(349, 0);
 			this.panelMain.Name = "panelMain";
 			this.panelMain.Size = new System.Drawing.Size(129, 529);
@@ -739,7 +739,7 @@ namespace Eto_Builder {
 			this.propertyGrid.BackColor = System.Drawing.SystemColors.Control;
 			this.propertyGrid.CausesValidation = false;
 			this.propertyGrid.Dock = System.Windows.Forms.DockStyle.Right;
-			this.propertyGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.propertyGrid.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.propertyGrid.LineColor = System.Drawing.Color.LightSlateGray;
 			this.propertyGrid.Location = new System.Drawing.Point(478, 0);
 			this.propertyGrid.Name = "propertyGrid";

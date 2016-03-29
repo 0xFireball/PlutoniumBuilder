@@ -312,7 +312,7 @@ namespace Eto_Builder
 			this.tabEtoForms.Name = "tabEtoForms";
 			this.tabEtoForms.Size = new System.Drawing.Size(280, 508);
 			this.tabEtoForms.TabIndex = 0;
-			this.tabEtoForms.Text = "Windows Forms";
+			this.tabEtoForms.Text = "Eto.Forms";
 			// 
 			// tabComponents
 			// 
@@ -356,7 +356,7 @@ namespace Eto_Builder
 																					 this.tabCustomControls});
 			this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-			this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
+			this.tabControl.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
 			this.tabControl.ItemSize = new System.Drawing.Size(99, 18);
 			this.tabControl.Location = new System.Drawing.Point(0, 0);
 			this.tabControl.Multiline = true;
