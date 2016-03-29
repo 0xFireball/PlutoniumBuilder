@@ -1232,6 +1232,7 @@ namespace EtoDesignerHost
 				
 				// We need to collect the parameters that our compiler will use.
 				CompilerParameters cp = new CompilerParameters();
+				cp.CompilerOptions = "/target:winexe";
 
 				// First, we tell our compiler to reference the assemblies which
 				// our designers have referenced (the ones which have import statements
