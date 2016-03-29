@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
 	using System;
 	using System.ComponentModel;
@@ -33,7 +33,7 @@ namespace SampleDesignerHost
 	/// In addition to maintaining the buffer in the form of an XmlDocument,
 	/// we also maintain it in a CodeCompileUnit. We use this DOM to generate
 	/// C# and VB code, as well as to compile the buffer into an executable.
-	public class SampleDesignerLoader : DesignerLoader 
+	public class EtoDesignerLoader : DesignerLoader 
 	{
 		private bool dirty;
 		private bool unsaved;
@@ -50,14 +50,14 @@ namespace SampleDesignerHost
 			};
 
 		/// Empty constructor simply creates a new form.
-		public SampleDesignerLoader() 
+		public EtoDesignerLoader() 
 		{
 		}
 
 		/// This constructor takes a file name.  This file
 		/// should exist on disk and consist of XML that
 		/// can be read by a data set.
-		public SampleDesignerLoader(string fileName) 
+		public EtoDesignerLoader(string fileName) 
 		{
 			if (fileName == null) 
 			{
@@ -71,7 +71,7 @@ namespace SampleDesignerHost
 		{
 			if (host == null) 
 			{
-				throw new ArgumentNullException("SampleDesignerLoader.BeginLoad: Invalid designerLoaderHost.");
+				throw new ArgumentNullException("EtoDesignerLoader.BeginLoad: Invalid designerLoaderHost.");
 			}
 
 			this.host = host;
@@ -84,11 +84,11 @@ namespace SampleDesignerHost
 			
 			// The loader is responsible for providing certain services to the host.
 			//
-			host.AddService(typeof(IDesignerSerializationManager), new SampleDesignerSerializationManager(this));
-			host.AddService(typeof(IEventBindingService), new SampleEventBindingService(host));
-			host.AddService(typeof(ITypeResolutionService), new SampleTypeResolutionService());
+			host.AddService(typeof(IDesignerSerializationManager), new EtoDesignerSerializationManager(this));
+			host.AddService(typeof(IEventBindingService), new EtoEventBindingService(host));
+			host.AddService(typeof(ITypeResolutionService), new EtoTypeResolutionService());
 			host.AddService(typeof(CodeDomProvider), new CSharpCodeProvider());
-			host.AddService(typeof(IResourceService), new SampleResourceService(host));
+			host.AddService(typeof(IResourceService), new EtoResourceService(host));
 
 			// If no filename was passed in, just create a form and be done with it.  If a file name
 			// was passed, read it.
@@ -195,7 +195,7 @@ namespace SampleDesignerHost
 			// We need to look at our type resolution service to find out what references
 			// to import.
 			//
-			SampleTypeResolutionService strs = host.GetService(typeof(ITypeResolutionService)) as SampleTypeResolutionService;
+			EtoTypeResolutionService strs = host.GetService(typeof(ITypeResolutionService)) as EtoTypeResolutionService;
 			foreach (Assembly assm in strs.RefencedAssemblies)
 			{
 				ns.Imports.Add(new CodeNamespaceImport(assm.GetName().Name));
@@ -1228,7 +1228,7 @@ namespace SampleDesignerHost
 				// We'll need our type resolution service in order to find out what
 				// assemblies we're dealing with.
 				//
-				SampleTypeResolutionService strs = host.GetService(typeof(ITypeResolutionService)) as SampleTypeResolutionService;
+				EtoTypeResolutionService strs = host.GetService(typeof(ITypeResolutionService)) as EtoTypeResolutionService;
 				
 				// We need to collect the parameters that our compiler will use.
 				CompilerParameters cp = new CompilerParameters();

@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Diagnostics;
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
 	///     Our implementation of IDesignerSerializationManager. This is a private
 	///     implementation and we only have one.  So, it could have been implemented
@@ -15,9 +15,9 @@ namespace SampleDesignerHost
 	///     itself.  I decided against this because there is a lot of
 	///     state associated with the serialization manager and it could get
 	///     confusing.
-	internal class SampleDesignerSerializationManager : IDesignerSerializationManager 
+	internal class EtoDesignerSerializationManager : IDesignerSerializationManager 
 	{
-		private SampleDesignerLoader            _loader;
+		private EtoDesignerLoader            _loader;
 		private ResolveNameEventHandler         _resolveNameEventHandler;
 		private EventHandler                    _serializationCompleteEventHandler;
 		private ArrayList                       _designerSerializationProviders;
@@ -29,7 +29,7 @@ namespace SampleDesignerHost
 		private PropertyDescriptorCollection    _propertyCollection;
 
 		///     Initializes the serialization manager.
-		internal SampleDesignerSerializationManager(SampleDesignerLoader loader) 
+		internal EtoDesignerSerializationManager(EtoDesignerLoader loader) 
 		{
 			_loader = loader;
 		}

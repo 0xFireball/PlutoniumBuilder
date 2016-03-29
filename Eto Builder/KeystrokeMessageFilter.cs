@@ -4,7 +4,7 @@ namespace Eto_Builder
 	using System.Windows.Forms;
 	using System.ComponentModel.Design;
 	using System.Windows.Forms.Design;
-	using SampleDesignerHost;
+	using EtoDesignerHost;
 
 	/// This filter is used to catch keyboard input that is meant for the designer.
 	/// It does not prevent the message from continuing, but instead merely
@@ -22,7 +22,7 @@ namespace Eto_Builder
 		public bool PreFilterMessage(ref Message m)
 		{
 			// Catch WM_KEYCHAR if the designerView has focus
-			if ((m.Msg == 0x0100) && (((SampleDesignerHost)host).View.Focused))
+			if ((m.Msg == 0x0100) && (((EtoDesignerHost)host).View.Focused))
 			{
 				IMenuCommandService mcs = host.GetService(typeof(IMenuCommandService)) as IMenuCommandService;
 

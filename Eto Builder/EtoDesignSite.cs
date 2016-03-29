@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
     using System;
     using System.Collections;
@@ -8,16 +8,16 @@ namespace SampleDesignerHost
     using System.Diagnostics;
 
 	/// Links a component to its container.
-    internal class SampleDesignSite : ISite, IDictionaryService {
+    internal class EtoDesignSite : ISite, IDictionaryService {
     
-        private static Attribute[] designerNameAttribute = new Attribute[] {new SampleDesignerNameAttribute(true)};
+        private static Attribute[] designerNameAttribute = new Attribute[] {new EtoDesignerNameAttribute(true)};
         
         private IComponent          component;
-        private SampleDesignerHost  host;
+        private EtoDesignerHost  host;
         private string              name;
 		private Hashtable			dictionary;
         
-        internal SampleDesignSite(SampleDesignerHost host, string name) {
+        internal EtoDesignSite(EtoDesignerHost host, string name) {
             this.host = host;
             this.component = null;
             this.name = name;

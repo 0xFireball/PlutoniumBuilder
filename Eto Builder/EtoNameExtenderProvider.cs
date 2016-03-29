@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
 
     using System;
@@ -14,17 +14,17 @@ namespace SampleDesignerHost
     [
     ProvideProperty("Name", typeof(IComponent))
     ]
-    internal class SampleNameExtenderProvider : IExtenderProvider {
+    internal class EtoNameExtenderProvider : IExtenderProvider {
 
 		// Any "Name" properties that we give out will have this attribute on them,
 		// so that we can tell it from any other "Name" properties which might be out there.
 		// We use this particular member as a filter to find the "Name"s we provided.
 		//
-        private static Attribute[] designerNameAttribute = new Attribute[] {new SampleDesignerNameAttribute(true)};
+        private static Attribute[] designerNameAttribute = new Attribute[] {new EtoDesignerNameAttribute(true)};
 
-        private SampleDesignerHost host;
+        private EtoDesignerHost host;
 
-        internal SampleNameExtenderProvider(SampleDesignerHost host) {
+        internal EtoNameExtenderProvider(EtoDesignerHost host) {
             this.host = host;
         }
 
@@ -43,7 +43,7 @@ namespace SampleDesignerHost
             return true;
         }
 
-        public SampleDesignerHost Host {
+        public EtoDesignerHost Host {
             get {
                 return host;
             }
@@ -53,7 +53,7 @@ namespace SampleDesignerHost
         ///     on the form.  It implements the "Name" property.
         [
         DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden),
-        SampleDesignerName(true), // this is one of our "Name"s
+        EtoDesignerName(true), // this is one of our "Name"s
         ParenthesizePropertyName(true),
         MergableProperty(false),
         Description("The name property for the component"),
@@ -72,7 +72,7 @@ namespace SampleDesignerHost
             // trim any spaces off of the name
             newName = newName.Trim();
 
-            SampleDesignSite cs = (SampleDesignSite) comp.Site;
+            EtoDesignSite cs = (EtoDesignSite) comp.Site;
             if (newName.Equals(cs.Name)) return;
 
             // If the rename is only a case change 
@@ -95,9 +95,9 @@ namespace SampleDesignerHost
         }
     }
 
-    internal class SampleInheritedNameExtenderProvider : SampleNameExtenderProvider {
+    internal class EtoInheritedNameExtenderProvider : EtoNameExtenderProvider {
 
-        internal SampleInheritedNameExtenderProvider(SampleDesignerHost host) : base(host) {
+        internal EtoInheritedNameExtenderProvider(EtoDesignerHost host) : base(host) {
         }
 
         public override bool CanExtend(object o) {

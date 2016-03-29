@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
     using System;
 	using System.ComponentModel;
@@ -13,12 +13,12 @@ namespace SampleDesignerHost
     
     ///     This class implements the actual document window for a form design.  This is the
     ///     window that the base designer will be parented into.  
-    internal class SampleDocumentWindow : Control {
+    internal class EtoDocumentWindow : Control {
 
 		private IDesignerHost           designerHost;
         private Control                 designerView;
 
-        internal SampleDocumentWindow(IDesignerHost designerHost) {
+        internal EtoDocumentWindow(IDesignerHost designerHost) {
             SetStyle(ControlStyles.ResizeRedraw, true);
             this.designerHost = designerHost;
             TabStop = false;

@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost {
+namespace EtoDesignerHost {
 
     using System;
     using System.ComponentModel;
@@ -7,15 +7,15 @@ namespace SampleDesignerHost {
     using System.Windows.Forms;
 
     // This class represents a single selected object.
-    internal class SampleSelectionItem {
+    internal class EtoSelectionItem {
 
         // Public objects this selection deals with
         private Component                 component;      // the component that's selected
-        private SampleSelectionService    selectionMgr;   // host interface
+        private EtoSelectionService    selectionMgr;   // host interface
         private bool                      primary;        // is this the primary selection?
 
         ///  Constructor
-        internal SampleSelectionItem(SampleSelectionService selectionMgr, Component component) {
+        internal EtoSelectionItem(EtoSelectionService selectionMgr, Component component) {
             this.component = component;
             this.selectionMgr = selectionMgr;
         }
@@ -43,18 +43,18 @@ namespace SampleDesignerHost {
             }
         }
 
-        internal event EventHandler SampleSelectionItemDispose ;
+        internal event EventHandler EtoSelectionItemDispose ;
         internal event EventHandler SelectionItemInvalidate ;
 
         ///     Disposes of this selection.  We dispose of our region object if it still exists and we
         ///     invalidate our UI so that we don't leave any turds laying around.
         internal virtual void Dispose() {
             if (primary) {
-                selectionMgr.SetPrimarySelection((SampleSelectionItem)null);
+                selectionMgr.SetPrimarySelection((EtoSelectionItem)null);
             }
 
-            if (SampleSelectionItemDispose != null)
-                SampleSelectionItemDispose(this, EventArgs.Empty);
+            if (EtoSelectionItemDispose != null)
+                EtoSelectionItemDispose(this, EventArgs.Empty);
         }
     }
 

@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
     using System;
 	using System.ComponentModel;
@@ -15,9 +15,9 @@ namespace SampleDesignerHost
 	/// sites for those components.
     internal class DesignerComponentCollection : ComponentCollection
 	{
-        private SampleDesignerHost host;
+        private EtoDesignerHost host;
 
-        internal DesignerComponentCollection(SampleDesignerHost host) : base(new IComponent[0]) {
+        internal DesignerComponentCollection(EtoDesignerHost host) : base(new IComponent[0]) {
             this.host = host;
 
             // Initially fill the list with site data.  After the initial fill it is up to

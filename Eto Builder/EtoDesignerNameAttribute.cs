@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
     using System;
 
@@ -9,20 +9,20 @@ namespace SampleDesignerHost
 	/// The attribute target is a Method, since the IExtenderProvider uses methods to specify
 	/// the get/set for our "Name" property.
     [AttributeUsage(AttributeTargets.Method, AllowMultiple=false, Inherited=true)]
-    internal sealed class SampleDesignerNameAttribute : Attribute {
+    internal sealed class EtoDesignerNameAttribute : Attribute {
         private bool designerName;
 
-        public static SampleDesignerNameAttribute Default = new SampleDesignerNameAttribute(false);
+        public static EtoDesignerNameAttribute Default = new EtoDesignerNameAttribute(false);
 
-        public SampleDesignerNameAttribute() : this(false){
+        public EtoDesignerNameAttribute() : this(false){
         }
 
-        public SampleDesignerNameAttribute(bool designerName) {
+        public EtoDesignerNameAttribute(bool designerName) {
             this.designerName = designerName;
         }
 
         public override bool Equals(object obj) {
-            SampleDesignerNameAttribute da = obj as SampleDesignerNameAttribute;
+            EtoDesignerNameAttribute da = obj as EtoDesignerNameAttribute;
 
             if (da == null) {
                 return false;

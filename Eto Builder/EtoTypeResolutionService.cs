@@ -4,16 +4,16 @@ using System.ComponentModel.Design;
 using System.Collections;
 using System.Reflection;
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
 
 	/// The ITypeResolutionService is used to load types at design time. It keeps an internal
 	/// set of assemblies that have been referenced thus far and can search them for types given
 	/// unqualified names.
-	public class SampleTypeResolutionService : System.ComponentModel.Design.ITypeResolutionService
+	public class EtoTypeResolutionService : System.ComponentModel.Design.ITypeResolutionService
 	{
 		private Hashtable assemblies;
-		public SampleTypeResolutionService() { }
+		public EtoTypeResolutionService() { }
 
 		/// We use this property to help us generate code and compile.
 		public Assembly[] RefencedAssemblies

@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
 	using System;
 	using System.Collections;
@@ -12,14 +12,14 @@ namespace SampleDesignerHost
 
 	///     This class provides a default implementation of the event
 	///     binding service.
-	public class SampleEventBindingService : IEventBindingService 
+	public class EtoEventBindingService : IEventBindingService 
 	{
 		private Hashtable _eventProperties;
 		private IServiceProvider _provider;
 
 		///     You must provide a service provider to the binding
 		///     service. We give it our host.
-		public SampleEventBindingService(IServiceProvider provider) 
+		public EtoEventBindingService(IServiceProvider provider) 
 		{
 			if (provider == null) 
 			{
@@ -280,11 +280,11 @@ namespace SampleDesignerHost
 		private class EventPropertyDescriptor : PropertyDescriptor 
 		{
 			private EventDescriptor     _eventDesc;
-			private SampleEventBindingService _eventSvc;
+			private EtoEventBindingService _eventSvc;
 			private TypeConverter       _converter;
 
 			///     Creates a new EventPropertyDescriptor.
-			internal EventPropertyDescriptor(EventDescriptor eventDesc, SampleEventBindingService eventSvc) : base(eventDesc, null) 
+			internal EventPropertyDescriptor(EventDescriptor eventDesc, EtoEventBindingService eventSvc) : base(eventDesc, null) 
 			{
 				_eventDesc = eventDesc;
 				_eventSvc = eventSvc;

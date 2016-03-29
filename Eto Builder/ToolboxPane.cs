@@ -20,7 +20,7 @@ namespace Eto_Builder
 	/// ToolboxItems.
 	public class ToolboxPane : System.Windows.Forms.UserControl
 	{
-		private SampleDesignerHost.SampleDesignerHost host;
+		private EtoDesignerHost.EtoDesignerHost host;
 		private System.Windows.Forms.ListBox listData;
 		private System.Windows.Forms.ListBox listCustomControls;
 		private System.Windows.Forms.ListBox listWindowsForms;
@@ -129,7 +129,7 @@ namespace Eto_Builder
 		// Properties
 
 		/// We need access to the designers.
-		public SampleDesignerHost.SampleDesignerHost Host
+		public EtoDesignerHost.EtoDesignerHost Host
 		{
 			get
 			{

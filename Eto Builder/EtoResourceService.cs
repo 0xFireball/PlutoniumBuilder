@@ -3,18 +3,18 @@ using System.Resources;
 using System.IO;
 using System.ComponentModel.Design;
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
 	/// Empty implementation of a ResourceService. Here is where you can control the way in which
 	/// resources are read and written. This sample doesn't play with them though.
-	public class SampleResourceService : IResourceService
+	public class EtoResourceService : IResourceService
 	{
 		private ResourceReader reader;
 		private ResourceWriter writer;
 		private IDesignerHost host;
 		private MemoryStream ms;
 
-		public SampleResourceService(IDesignerHost host) 
+		public EtoResourceService(IDesignerHost host) 
 		{
 			this.host = host;
 		}

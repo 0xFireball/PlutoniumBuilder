@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
     using System;
 	using System.ComponentModel;
@@ -13,7 +13,7 @@ namespace SampleDesignerHost
     using System.Reflection;
     using System.Text;
 
-    public class SampleDesignerHost : 
+    public class EtoDesignerHost : 
           IContainer
         , IDesignerHost
         , IDesignerLoaderHost 
@@ -43,7 +43,7 @@ namespace SampleDesignerHost
         private IComponent                     rootComponent;             // the base document component we're designing
         private string                         rootComponentClassName;    // the name of the class the base component represents
         private IRootDesigner                  rootDesigner;              // the designer for the document
-        private SampleDocumentWindow           documentWindow;            // the thing being reparented by the docwin
+        private EtoDocumentWindow           documentWindow;            // the thing being reparented by the docwin
         private ITypeResolutionService         typeResolver;              // The object we load types through.
         private Exception                      loadError;                 // The first load error, or null.
         private INameCreationService           nameService;               // service we use to validate names of things.
@@ -55,15 +55,15 @@ namespace SampleDesignerHost
         private bool                           reloading;                 // true if we are reloading the document
 
         // Transient stuff
-        private SampleDesignSite               newComponentSite;          // used during new component creation
+        private EtoDesignSite               newComponentSite;          // used during new component creation
 
-        //SampleDesignerHost
-        public SampleDesignerHost() : this(new ServiceContainer()) {
+        //EtoDesignerHost
+        public EtoDesignerHost() : this(new ServiceContainer()) {
         }
 
         // We take a service provider in our constructor so that our main form can give us
 		// services (like the property grid and toolbox).
-        public SampleDesignerHost(IServiceProvider parentProvider) {
+        public EtoDesignerHost(IServiceProvider parentProvider) {
             this.serviceContainer = new ServiceContainer(parentProvider);
             designerTable = new Hashtable();
             sites = new Hashtable(CaseInsensitiveHashCodeProvider.Default, CaseInsensitiveComparer.Default);
@@ -91,8 +91,8 @@ namespace SampleDesignerHost
 //          serviceContainer.AddService(typeof(IPropertyValueUIService), callback); - UNIMPLEMENTED
 
             // Configure extender providers.
-            ((IExtenderProviderService)this).AddExtenderProvider(new SampleNameExtenderProvider(this));
-            ((IExtenderProviderService)this).AddExtenderProvider(new SampleInheritedNameExtenderProvider(this));
+            ((IExtenderProviderService)this).AddExtenderProvider(new EtoNameExtenderProvider(this));
+            ((IExtenderProviderService)this).AddExtenderProvider(new EtoInheritedNameExtenderProvider(this));
 
         }
 
@@ -237,7 +237,7 @@ namespace SampleDesignerHost
             // Check to see if someone has already configured a site for us.  If so,
             // use it.  Otherwise, fabricate a new site.
             // newComponentSite is created by CreateComponent.
-            SampleDesignSite newSite = newComponentSite;
+            EtoDesignSite newSite = newComponentSite;
             newComponentSite = null;
 
             if (newSite != null && name == null) {
@@ -256,7 +256,7 @@ namespace SampleDesignerHost
             if (site != null) site.Container.Remove(component);
 
             if (newSite == null) {
-                newSite = new SampleDesignSite(this, name);
+                newSite = new EtoDesignSite(this, name);
             }
 
             // And set the relationship between this site and it's component.  If the
@@ -307,12 +307,12 @@ namespace SampleDesignerHost
             ISite site = component.Site;
             if (!sites.ContainsValue(site)) return;
             if (site == null || site.Container != this) return;
-            if (!(site is SampleDesignSite)) return;
+            if (!(site is EtoDesignSite)) return;
 
             ComponentEventArgs ce = new ComponentEventArgs(component);
             OnComponentRemoving(ce);
 
-            SampleDesignSite csite = (SampleDesignSite)site;
+            EtoDesignSite csite = (EtoDesignSite)site;
             if (csite.Component != rootComponent) {
                 if (component is IExtenderProvider) {
                     ((IExtenderProviderService)this).RemoveExtenderProvider((IExtenderProvider)component);
@@ -651,7 +651,7 @@ namespace SampleDesignerHost
             // Create the site we are going to use here so that our Container.Add implementation 
             // can pick it up - need to do this here because name is not passed to Container.Add
             // by Foo(IContainer) constructor below.
-            newComponentSite = new SampleDesignSite(this,name);
+            newComponentSite = new EtoDesignSite(this,name);
 
             // Create the Component - there are 2 possible ways to do this:
             // Foo(IComponent) or Foo().
@@ -679,8 +679,8 @@ namespace SampleDesignerHost
                 }
 
                 // If we didn't have a constructor that took a Container or the site is not 
-                // a SampleDesignSite the we will do the Container.Add() work 
-                SampleDesignSite site = comp.Site as SampleDesignSite;
+                // a EtoDesignSite the we will do the Container.Add() work 
+                EtoDesignSite site = comp.Site as EtoDesignSite;
                 if (site == null) {
                     ((IContainer)this).Add(comp);
                 }
@@ -719,7 +719,7 @@ namespace SampleDesignerHost
                 description = string.Empty;
             }
             
-            return new SampleDesignerTransaction(this, description);
+            return new EtoDesignerTransaction(this, description);
         }
 
 
@@ -872,7 +872,7 @@ namespace SampleDesignerHost
 
         //****
         //****
-        //**** Sample Designer Host methods
+        //**** Eto Designer Host methods
         //****
         //****
 
@@ -1102,7 +1102,7 @@ namespace SampleDesignerHost
                 this.designerLoader = designerLoader;
                 
                 // Create the Design View
-                documentWindow = new SampleDocumentWindow(this);
+                documentWindow = new EtoDocumentWindow(this);
 
                 // Load the document
                 Load(false);
@@ -1167,19 +1167,19 @@ namespace SampleDesignerHost
             // Create SelectionService
             if (serviceType == typeof(ISelectionService)) {
                 if (selectionService == null) {
-                    selectionService = new SampleSelectionService(this);
+                    selectionService = new EtoSelectionService(this);
                 }
                 return selectionService;
             }
 
 			if (serviceType == typeof(ITypeDescriptorFilterService)) {
-				return new SampleTypeDescriptorFilterService(this);
+				return new EtoTypeDescriptorFilterService(this);
 			}         
 
 			
 			if (serviceType == typeof(IToolboxService)) {
 				if (toolboxService == null) {
-					toolboxService = new SampleToolboxService(this);
+					toolboxService = new EtoToolboxService(this);
 				}
 				return toolboxService;
 			}
@@ -1187,7 +1187,7 @@ namespace SampleDesignerHost
             
             if (serviceType == typeof(IMenuCommandService)) {
                 if (menuCommandService == null) {
-                    menuCommandService = new SampleMenuCommandService(this);
+                    menuCommandService = new EtoMenuCommandService(this);
                 }
                 return menuCommandService;
             }
@@ -1195,25 +1195,25 @@ namespace SampleDesignerHost
 // UNIMPLEMENTED         
 //            if (serviceType == typeof(IHelpService)) {
 //                if (helpService == null) {
-//                    helpService = new SampleHelpService(this);
+//                    helpService = new EtoHelpService(this);
 //                }
 //                return helpService;
 //            }
 //            
 //            if (serviceType == typeof(IReferenceService)) {
 //                if (referenceService == null) {
-//                    referenceService = new SampleReferenceService(this, true);
+//                    referenceService = new EtoReferenceService(this, true);
 //                }
 //                return referenceService;
 //            }
 //            
 //            if (serviceType == typeof(IPropertyValueUIService)) {
-//                return new SamplePropertyValueUIService();
+//                return new EtoPropertyValueUIService();
 //            }
 //
 //            if (serviceType == typeof(IMenuEditorService)) {
 //                if (menuEditorService == null) {
-//                    menuEditorService = new SampleMenuEditorService(this);
+//                    menuEditorService = new EtoMenuEditorService(this);
 //                }
 //                return menuEditorService;
 //            }
@@ -1250,13 +1250,13 @@ namespace SampleDesignerHost
             ISite site = component.Site;
             if (!sites.ContainsValue(site)) return;
             if (site == null || site.Container != this) return;
-            if (!(site is SampleDesignSite)) return;
+            if (!(site is EtoDesignSite)) return;
 
             ComponentEventArgs ce = new ComponentEventArgs(component);
             OnComponentRemoving(ce);
 
             // Remove the component from extender provider list if its an extender provider
-            SampleDesignSite csite = (SampleDesignSite)site;
+            EtoDesignSite csite = (EtoDesignSite)site;
             
             if (csite.Component != rootComponent) {
                 if (component is IExtenderProvider) {
@@ -1348,7 +1348,7 @@ namespace SampleDesignerHost
             rootComponent = null;
             rootComponentClassName = null;
 
-            SampleDesignSite[] siteArray = new SampleDesignSite[sites.Values.Count];
+            EtoDesignSite[] siteArray = new EtoDesignSite[sites.Values.Count];
             sites.Values.CopyTo(siteArray, 0);
 
             // Destroy all designers.  We save the base designer for last.
@@ -1378,7 +1378,7 @@ namespace SampleDesignerHost
     
                 // Now destroy all components.
                 for (int i = 0; i < siteArray.Length; i++) {
-                    SampleDesignSite site = siteArray[i];
+                    EtoDesignSite site = siteArray[i];
                     IComponent comp = site.Component;
                     if (comp != null && comp != rootComponentHolder) {
                         try {

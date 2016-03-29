@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
     using System;
 	using System.ComponentModel;
@@ -14,10 +14,10 @@ namespace SampleDesignerHost
 	/// Designer transactions offer a mechanism to improve performance by wrapping around
 	/// a series of component changes. The changes are not actually committed until the
 	/// entire batch is processed. They can be aborted if the transaction is canceled.
-    internal class SampleDesignerTransaction : DesignerTransaction {
-        private SampleDesignerHost host;
+    internal class EtoDesignerTransaction : DesignerTransaction {
+        private EtoDesignerHost host;
 
-        public SampleDesignerTransaction(SampleDesignerHost host, string description) : base(description) {
+        public EtoDesignerTransaction(EtoDesignerHost host, string description) : base(description) {
             this.host = host;
 
 			// The host keeps a string stack of the transaction descriptions.

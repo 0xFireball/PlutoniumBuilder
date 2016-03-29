@@ -4,18 +4,18 @@ using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel.Design;
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
 	/// The IToolboxService is responsible for communication between the designer
 	/// and whatever implementation of a toolbox you have. This service can be
 	/// its own class (as it is here) or it can be implemented on the actual
 	/// toolbox control.
-	public class SampleToolboxService : System.Drawing.Design.IToolboxService
+	public class EtoToolboxService : System.Drawing.Design.IToolboxService
 	{
 		private IDesignerHost host;
 		private Eto_Builder.ToolboxPane toolbox;
 
-		public SampleToolboxService(IDesignerHost host)
+		public EtoToolboxService(IDesignerHost host)
 		{
 			this.host = host;
 

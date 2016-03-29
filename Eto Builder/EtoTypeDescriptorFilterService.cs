@@ -3,15 +3,15 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
 	/// This service relays requests for filtering a component's exposed
 	/// attributes, properties, and events to that component's designer.
-	public class SampleTypeDescriptorFilterService : ITypeDescriptorFilterService
+	public class EtoTypeDescriptorFilterService : ITypeDescriptorFilterService
 	{
 		public IDesignerHost host;
 
-		public SampleTypeDescriptorFilterService(IDesignerHost host)
+		public EtoTypeDescriptorFilterService(IDesignerHost host)
 		{
 			this.host = host;
 		}

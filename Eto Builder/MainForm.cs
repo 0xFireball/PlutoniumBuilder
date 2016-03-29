@@ -11,15 +11,15 @@ namespace Eto_Builder {
     using System.Reflection;
 	using System.CodeDom;
 	using System.Collections;
-    using SampleDesignerHost;
+    using EtoDesignerHost;
     using System.IO;
 
 	//
     public class MainForm : System.Windows.Forms.Form {
         private System.ComponentModel.IContainer components = null;
 
-        private SampleDesignerHost host;
-        private SampleDesignerLoader loader;
+        private EtoDesignerHost host;
+        private EtoDesignerLoader loader;
 		private System.Windows.Forms.MainMenu mainMenu;
 		private System.Windows.Forms.MenuItem menuItemFile;
 		private System.Windows.Forms.MenuItem menuItemNew;
@@ -111,10 +111,10 @@ namespace Eto_Builder {
 
 		//
 		//
-        private void CreateDesigner(SampleDesignerLoader loader) 
+        private void CreateDesigner(EtoDesignerLoader loader) 
         {
 			// Our loader will handle loading the file (or creating a blank one).
-            host = new SampleDesignerHost(hostingServiceContainer);
+            host = new EtoDesignerHost(hostingServiceContainer);
 			
 			// The limited events tab functionality we have requires a special kind of
 			// property grid site.
@@ -855,7 +855,7 @@ namespace Eto_Builder {
             if (DestroyDesigner()) // make sure we're clear for a new designer
             {
 				// A loader created with no parameters creates a blank document.
-                SampleDesignerLoader designerLoader = new SampleDesignerLoader();
+                EtoDesignerLoader designerLoader = new EtoDesignerLoader();
                 CreateDesigner(designerLoader);
             }
 		}
@@ -867,7 +867,7 @@ namespace Eto_Builder {
 				if (openFileDialog.ShowDialog(this) == DialogResult.OK)
 				{
 					// Load up this file (XML is all we support for now).
-					SampleDesignerLoader designerLoader = new SampleDesignerLoader(openFileDialog.FileName);
+					EtoDesignerLoader designerLoader = new EtoDesignerLoader(openFileDialog.FileName);
 					CreateDesigner(designerLoader);
 				}
 			}

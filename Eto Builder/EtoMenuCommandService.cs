@@ -6,12 +6,12 @@ using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
 	/// The IMenuCommandService keeps track of MenuCommands and Designer Verbs
 	/// that are available at any single moment. It can invoke these commands
 	/// and also handles the displaying of ContextMenus for designers that support them.
-	public class SampleMenuCommandService : System.ComponentModel.Design.IMenuCommandService
+	public class EtoMenuCommandService : System.ComponentModel.Design.IMenuCommandService
 	{
 		private Hashtable commands; // added MenuCommands
 		private Hashtable verbsFromMenuItems; // DesignerVerb values mapped to MenuItem keys
@@ -21,7 +21,7 @@ namespace SampleDesignerHost
 		private ContextMenu cm;
 		private IComponent lastSelection; // needed to clean up local verbs from a previous selection
 
-		public SampleMenuCommandService(IDesignerHost host)
+		public EtoMenuCommandService(IDesignerHost host)
 		{
 			this.host = host;
 		}

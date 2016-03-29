@@ -1,5 +1,5 @@
 
-namespace SampleDesignerHost
+namespace EtoDesignerHost
 {
     using System;
 	using System.ComponentModel;
@@ -12,10 +12,10 @@ namespace SampleDesignerHost
 
 	/// This class keeps track of the selected component(s) and provides events
 	/// to notify about selection changes.
-    internal class SampleSelectionService : ISelectionService {
+    internal class EtoSelectionService : ISelectionService {
 
         // These constitute the current selection at any moment.
-        private SampleSelectionItem           primarySelection;         // the primary selection
+        private EtoSelectionItem           primarySelection;         // the primary selection
         private Hashtable                     selectionsByComponent;    // hashtable of selections
 
         // Hookups to other services
@@ -28,7 +28,7 @@ namespace SampleDesignerHost
         private bool                 selectionChanged;         // true, if the selection changed in batch mode
         private bool                 selectionContentsChanged; // true, if the selection contents changed in batch mode
         
-        internal SampleSelectionService(IDesignerHost host) {
+        internal EtoSelectionService(IDesignerHost host) {
             this.host = host;
             this.container = host.Container;
             this.selectionsByComponent = new Hashtable();
@@ -68,7 +68,7 @@ namespace SampleDesignerHost
                     bool valueFound = selections.MoveNext();
 
                     if (valueFound) {
-                        primarySelection = (SampleSelectionItem)selections.Value;
+                        primarySelection = (EtoSelectionItem)selections.Value;
                         primarySelection.Primary = true;
                     }
                 }
@@ -106,7 +106,7 @@ namespace SampleDesignerHost
             object[] objects = new object[sels.Length];
 
             for (int i = 0; i < sels.Length; i++) {
-                objects[i] = ((SampleSelectionItem)sels[i]).Component;
+                objects[i] = ((EtoSelectionItem)sels[i]).Component;
             }
 
             return objects;
@@ -160,18 +160,18 @@ namespace SampleDesignerHost
                 }
                 
                 if (fClick && 1 == components.Count && ((ISelectionService)this).GetComponentSelected(firstSelection)) {
-                    SampleSelectionItem oldPrimary = primarySelection;
-                    SetPrimarySelection((SampleSelectionItem)selectionsByComponent[firstSelection]);
+                    EtoSelectionItem oldPrimary = primarySelection;
+                    SetPrimarySelection((EtoSelectionItem)selectionsByComponent[firstSelection]);
                     if (oldPrimary != primarySelection) {
                         fChanged = true;
                     }
                 }
                 else {
-                    SampleSelectionItem[] selections = new SampleSelectionItem[selectionsByComponent.Values.Count];
+                    EtoSelectionItem[] selections = new EtoSelectionItem[selectionsByComponent.Values.Count];
                     selectionsByComponent.Values.CopyTo(selections, 0);                    
 
                     // Even with several hundred components this should be fairly fast
-                    foreach(SampleSelectionItem item in selections) {
+                    foreach(EtoSelectionItem item in selections) {
                         bool remove = true;
                     
                         foreach(object comp in components) {
@@ -189,16 +189,16 @@ namespace SampleDesignerHost
                 }
             }
 
-            SampleSelectionItem primarySel = null;
+            EtoSelectionItem primarySel = null;
             int selectedCount = selectionsByComponent.Count;
 
             // Now do the selection.
             foreach(Component comp in components) {
                 if (comp != null) {
-                    SampleSelectionItem  s = (SampleSelectionItem)selectionsByComponent[comp];
+                    EtoSelectionItem  s = (EtoSelectionItem)selectionsByComponent[comp];
     
                     if (null == s) {
-                        s = new SampleSelectionItem(this, comp);
+                        s = new EtoSelectionItem(this, comp);
                         AddSelection(s);
 
                         if (fControl || fToggle) {
@@ -230,7 +230,7 @@ namespace SampleDesignerHost
 
 
         ///     Adds the given selection to our selection list.
-        private void AddSelection(SampleSelectionItem sel) {
+        private void AddSelection(EtoSelectionItem sel) {
             selectionsByComponent[sel.Component] = sel;
         }
 
@@ -275,7 +275,7 @@ namespace SampleDesignerHost
         ///     the selection.
         private void DesignerHost_ComponentRemove(object sender, ComponentEventArgs ce) {
 
-            SampleSelectionItem sel = (SampleSelectionItem)selectionsByComponent[ce.Component];
+            EtoSelectionItem sel = (EtoSelectionItem)selectionsByComponent[ce.Component];
             
             if (sel != null) {
                 RemoveSelection(sel);
@@ -364,7 +364,7 @@ namespace SampleDesignerHost
                 cs.ComponentChanged -= new ComponentChangedEventHandler(this.DesignerHost_ComponentChanged);
             }
 
-            SampleSelectionItem[] sels = new SampleSelectionItem[selectionsByComponent.Values.Count];
+            EtoSelectionItem[] sels = new EtoSelectionItem[selectionsByComponent.Values.Count];
             selectionsByComponent.Values.CopyTo(sels, 0);
             
             for (int i = 0; i < sels.Length; i++) {
@@ -444,14 +444,14 @@ namespace SampleDesignerHost
         }
 
         ///     Removes the given selection from our selection list
-        private void RemoveSelection(SampleSelectionItem s) {
+        private void RemoveSelection(EtoSelectionItem s) {
             selectionsByComponent.Remove(s.Component);
             s.Dispose();
         }
 
 
         ///     Sets the given selection object to be the primary selection.
-        internal void SetPrimarySelection(SampleSelectionItem sel) {
+        internal void SetPrimarySelection(EtoSelectionItem sel) {
             if (sel != primarySelection) {
                 if (null != primarySelection) {
                     primarySelection.Primary = false;
