@@ -667,7 +667,7 @@ namespace Eto_Builder {
 			// 
 			this.tabControl.Controls.Add(this.tabDesign);
 			this.tabControl.Controls.Add(this.tabCS);
-			this.tabControl.Controls.Add(this.tabVB);
+			//this.tabControl.Controls.Add(this.tabVB);
 			this.tabControl.Controls.Add(this.tabXML);
 			this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
@@ -823,10 +823,10 @@ namespace Eto_Builder {
 			this.textXML.Size = new System.Drawing.Size(904, 587);
 			this.textXML.TabIndex = 1;
 			this.textXML.WordWrap = false;
-			// 
-			// openFileDialog
-			// 
-			this.openFileDialog.Filter = "XML Files|*.xml";
+            // 
+            // openFileDialog
+            //
+            this.openFileDialog.Filter = "EtoBuilder XML Layout Files|*.exml";
 			// 
 			// MainForm
 			// 

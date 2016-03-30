@@ -1,6 +1,8 @@
 ﻿/*
  */
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Eto_Builder
@@ -16,7 +18,7 @@ namespace Eto_Builder
 		[STAThread]
 		private static void Main(string[] args)
 		{
-			Application.EnableVisualStyles();
+            Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new MainForm());
 		}

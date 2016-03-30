@@ -1114,6 +1114,19 @@ namespace EtoDesignerHost
             }
         }
 
+        public static Type GetTypeEx(string typeName)
+        {
+            var type = Type.GetType(typeName);
+            if (type != null) return type;
+            foreach (var a in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                type = a.GetType(typeName);
+                if (type != null)
+                    return type;
+            }
+            return null;
+        }
+
         ///     This is called after a component has been added to the container.
         private void OnComponentAdded(ComponentEventArgs ce) {
             if (ComponentAdded != null) {
@@ -1124,7 +1137,10 @@ namespace EtoDesignerHost
 				// document and load it, we get no help from the ToolboxItems.
 				//
 				ITypeResolutionService trs = ((IServiceContainer)this).GetService(typeof(ITypeResolutionService)) as ITypeResolutionService;
-				trs.ReferenceAssembly(ce.Component.GetType().Assembly.GetName());
+                var typeName = ce.Component.GetType().ToString();
+                var patchedTypeName = Eto_Builder.EtoPatcher.EtoPatcher.PatchTypeName(typeName);
+                var patchedType = GetTypeEx(patchedTypeName);
+                trs.ReferenceAssembly(patchedType.Assembly.GetName());
 
                 ComponentAdded(this, ce);
             }

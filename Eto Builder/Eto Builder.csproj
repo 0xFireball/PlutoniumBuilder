@@ -50,6 +50,7 @@
     </Reference>
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
@@ -68,6 +69,7 @@
     <Compile Include="EtoEventBindingService.cs" />
     <Compile Include="EtoMenuCommandService.cs" />
     <Compile Include="EtoNameExtenderProvider.cs" />
+    <Compile Include="EtoPatcher\EtoPatcher.cs" />
     <Compile Include="EtoResourceService.cs" />
     <Compile Include="EtoSelectionItem.cs" />
     <Compile Include="EtoSelectionService.cs" />
