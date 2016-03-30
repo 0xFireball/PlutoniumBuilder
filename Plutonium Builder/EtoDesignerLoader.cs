@@ -1131,7 +1131,7 @@ namespace EtoDesignerHost
                 {
                     SaveFileDialog dlg = new SaveFileDialog();
                     dlg.DefaultExt = supportedExt;
-                    dlg.Filter = "C# Files|*.cs|Visual Basic Files|*.vb|EtoBuilder XML Layout Files|*."+supportedExt;
+                    dlg.Filter = "C# Files|*.cs|Visual Basic Files|*.vb|PlutoniumBuilder XML Layout Files|*."+supportedExt;
                     dlg.FilterIndex = filterIndex;
 
                     if (dlg.ShowDialog() == DialogResult.OK)

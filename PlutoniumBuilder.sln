@@ -4,7 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # SharpDevelop 5.1
 VisualStudioVersion = 12.0.20827.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eto Builder", "Eto Builder\Eto Builder.csproj", "{8BE3AB84-0D0E-4A51-A0B5-8E6259AA9145}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlutoniumBuilder", "Plutonium Builder\PlutoniumBuilder.csproj", "{8BE3AB84-0D0E-4A51-A0B5-8E6259AA9145}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

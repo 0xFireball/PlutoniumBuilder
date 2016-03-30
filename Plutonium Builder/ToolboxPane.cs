@@ -218,7 +218,7 @@ namespace Eto_Builder
         	// 
         	// listData
         	// 
-        	this.listData.BackColor = System.Drawing.Color.OrangeRed;
+        	this.listData.BackColor = System.Drawing.Color.SkyBlue;
         	this.listData.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.listData.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
         	this.listData.Location = new System.Drawing.Point(0, 0);
@@ -232,7 +232,7 @@ namespace Eto_Builder
         	// 
         	// listCustomControls
         	// 
-        	this.listCustomControls.BackColor = System.Drawing.Color.OrangeRed;
+        	this.listCustomControls.BackColor = System.Drawing.Color.SkyBlue;
         	this.listCustomControls.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.listCustomControls.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
         	this.listCustomControls.Location = new System.Drawing.Point(0, 0);
@@ -247,7 +247,7 @@ namespace Eto_Builder
         	// listEtoForms
         	// 
         	this.listEtoForms.AllowDrop = true;
-        	this.listEtoForms.BackColor = System.Drawing.Color.OrangeRed;
+        	this.listEtoForms.BackColor = System.Drawing.Color.SkyBlue;
         	this.listEtoForms.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.listEtoForms.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
         	this.listEtoForms.Location = new System.Drawing.Point(0, 0);
@@ -261,7 +261,7 @@ namespace Eto_Builder
         	// 
         	// listComponents
         	// 
-        	this.listComponents.BackColor = System.Drawing.Color.OrangeRed;
+        	this.listComponents.BackColor = System.Drawing.Color.SkyBlue;
         	this.listComponents.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.listComponents.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
         	this.listComponents.Location = new System.Drawing.Point(0, 0);
@@ -275,7 +275,7 @@ namespace Eto_Builder
         	// 
         	// tabEtoForms
         	// 
-        	this.tabEtoForms.BackColor = System.Drawing.Color.OrangeRed;
+        	this.tabEtoForms.BackColor = System.Drawing.Color.SkyBlue;
         	this.tabEtoForms.Controls.Add(this.listEtoForms);
         	this.tabEtoForms.Location = new System.Drawing.Point(4, 40);
         	this.tabEtoForms.Name = "tabEtoForms";
@@ -285,7 +285,7 @@ namespace Eto_Builder
         	// 
         	// tabComponents
         	// 
-        	this.tabComponents.BackColor = System.Drawing.Color.OrangeRed;
+        	this.tabComponents.BackColor = System.Drawing.Color.SkyBlue;
         	this.tabComponents.Controls.Add(this.listComponents);
         	this.tabComponents.Location = new System.Drawing.Point(4, 40);
         	this.tabComponents.Name = "tabComponents";
@@ -295,7 +295,7 @@ namespace Eto_Builder
         	// 
         	// tabData
         	// 
-        	this.tabData.BackColor = System.Drawing.Color.OrangeRed;
+        	this.tabData.BackColor = System.Drawing.Color.SkyBlue;
         	this.tabData.Controls.Add(this.listData);
         	this.tabData.Location = new System.Drawing.Point(4, 40);
         	this.tabData.Name = "tabData";
@@ -305,7 +305,7 @@ namespace Eto_Builder
         	// 
         	// tabCustomControls
         	// 
-        	this.tabCustomControls.BackColor = System.Drawing.Color.OrangeRed;
+        	this.tabCustomControls.BackColor = System.Drawing.Color.SkyBlue;
         	this.tabCustomControls.Controls.Add(this.listCustomControls);
         	this.tabCustomControls.Location = new System.Drawing.Point(4, 40);
         	this.tabCustomControls.Name = "tabCustomControls";
@@ -408,7 +408,7 @@ namespace Eto_Builder
             }
             else
             {
-                e.Graphics.FillRectangle(Brushes.OrangeRed, e.Bounds);
+                e.Graphics.FillRectangle(Brushes.SkyBlue, e.Bounds);
             }
 
             ToolboxItem tbi = lbSender.Items[e.Index] as ToolboxItem;
