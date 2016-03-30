@@ -282,16 +282,16 @@ namespace Eto_Builder {
 			this.propertyGrid = new System.Windows.Forms.PropertyGrid();
 			this.tabCS = new System.Windows.Forms.TabPage();
 			this.textCS = new System.Windows.Forms.TextBox();
-			this.tabVB = new System.Windows.Forms.TabPage();
-			this.textVB = new System.Windows.Forms.TextBox();
 			this.tabXML = new System.Windows.Forms.TabPage();
 			this.textXML = new System.Windows.Forms.TextBox();
+			this.tabVB = new System.Windows.Forms.TabPage();
+			this.textVB = new System.Windows.Forms.TextBox();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.tabControl.SuspendLayout();
 			this.tabDesign.SuspendLayout();
 			this.tabCS.SuspendLayout();
-			this.tabVB.SuspendLayout();
 			this.tabXML.SuspendLayout();
+			this.tabVB.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// mainMenu
@@ -317,31 +317,31 @@ namespace Eto_Builder {
 			// menuItemNew
 			// 
 			this.menuItemNew.Index = 0;
-			this.menuItemNew.Text = "&New";
 			this.menuItemNew.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
+			this.menuItemNew.Text = "&New";
 			this.menuItemNew.Click += new System.EventHandler(this.menuItemNew_Click);
 			// 
 			// menuItemOpen
 			// 
 			this.menuItemOpen.Index = 1;
-			this.menuItemOpen.Text = "&Open...";
 			this.menuItemOpen.Shortcut = System.Windows.Forms.Shortcut.CtrlO;
+			this.menuItemOpen.Text = "&Open...";
 			this.menuItemOpen.Click += new System.EventHandler(this.menuItemOpen_Click);
 			// 
 			// menuItemSave
 			// 
 			this.menuItemSave.Enabled = false;
 			this.menuItemSave.Index = 2;
-			this.menuItemSave.Text = "&Save";
 			this.menuItemSave.Shortcut = System.Windows.Forms.Shortcut.CtrlS;
+			this.menuItemSave.Text = "&Save";
 			this.menuItemSave.Click += new System.EventHandler(this.menuItemSave_Click);
 			// 
 			// menuItemSaveAs
 			// 
 			this.menuItemSaveAs.Enabled = false;
 			this.menuItemSaveAs.Index = 3;
-			this.menuItemSaveAs.Text = "Save &As...";
 			this.menuItemSaveAs.Shortcut = System.Windows.Forms.Shortcut.CtrlShiftS;
+			this.menuItemSaveAs.Text = "Save &As...";
 			this.menuItemSaveAs.Click += new System.EventHandler(this.menuItemSaveAs_Click);
 			// 
 			// menuItemExit
@@ -667,7 +667,6 @@ namespace Eto_Builder {
 			// 
 			this.tabControl.Controls.Add(this.tabDesign);
 			this.tabControl.Controls.Add(this.tabCS);
-			//this.tabControl.Controls.Add(this.tabVB);
 			this.tabControl.Controls.Add(this.tabXML);
 			this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
@@ -676,7 +675,7 @@ namespace Eto_Builder {
 			this.tabControl.Location = new System.Drawing.Point(0, 0);
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
-			this.tabControl.Size = new System.Drawing.Size(760, 562);
+			this.tabControl.Size = new System.Drawing.Size(760, 612);
 			this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
 			this.tabControl.TabIndex = 0;
 			this.tabControl.Visible = false;
@@ -693,7 +692,7 @@ namespace Eto_Builder {
 			this.tabDesign.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabDesign.Location = new System.Drawing.Point(4, 29);
 			this.tabDesign.Name = "tabDesign";
-			this.tabDesign.Size = new System.Drawing.Size(752, 529);
+			this.tabDesign.Size = new System.Drawing.Size(752, 579);
 			this.tabDesign.TabIndex = 0;
 			this.tabDesign.Text = "Design";
 			// 
@@ -702,7 +701,7 @@ namespace Eto_Builder {
 			this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
 			this.splitter2.Location = new System.Drawing.Point(474, 0);
 			this.splitter2.Name = "splitter2";
-			this.splitter2.Size = new System.Drawing.Size(4, 529);
+			this.splitter2.Size = new System.Drawing.Size(4, 579);
 			this.splitter2.TabIndex = 12;
 			this.splitter2.TabStop = false;
 			// 
@@ -713,14 +712,14 @@ namespace Eto_Builder {
 			this.panelMain.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.panelMain.Location = new System.Drawing.Point(349, 0);
 			this.panelMain.Name = "panelMain";
-			this.panelMain.Size = new System.Drawing.Size(129, 529);
+			this.panelMain.Size = new System.Drawing.Size(129, 579);
 			this.panelMain.TabIndex = 11;
 			// 
 			// splitter1
 			// 
 			this.splitter1.Location = new System.Drawing.Point(346, 0);
 			this.splitter1.Name = "splitter1";
-			this.splitter1.Size = new System.Drawing.Size(3, 529);
+			this.splitter1.Size = new System.Drawing.Size(3, 579);
 			this.splitter1.TabIndex = 10;
 			this.splitter1.TabStop = false;
 			// 
@@ -731,7 +730,7 @@ namespace Eto_Builder {
 			this.toolbox.Host = null;
 			this.toolbox.Location = new System.Drawing.Point(0, 0);
 			this.toolbox.Name = "toolbox";
-			this.toolbox.Size = new System.Drawing.Size(346, 529);
+			this.toolbox.Size = new System.Drawing.Size(346, 579);
 			this.toolbox.TabIndex = 9;
 			// 
 			// propertyGrid
@@ -740,10 +739,10 @@ namespace Eto_Builder {
 			this.propertyGrid.CausesValidation = false;
 			this.propertyGrid.Dock = System.Windows.Forms.DockStyle.Right;
 			this.propertyGrid.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.propertyGrid.LineColor = System.Drawing.Color.LightSlateGray;
+			this.propertyGrid.LineColor = System.Drawing.Color.OrangeRed;
 			this.propertyGrid.Location = new System.Drawing.Point(478, 0);
 			this.propertyGrid.Name = "propertyGrid";
-			this.propertyGrid.Size = new System.Drawing.Size(274, 529);
+			this.propertyGrid.Size = new System.Drawing.Size(274, 579);
 			this.propertyGrid.TabIndex = 7;
 			// 
 			// tabCS
@@ -752,7 +751,7 @@ namespace Eto_Builder {
 			this.tabCS.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabCS.Location = new System.Drawing.Point(4, 29);
 			this.tabCS.Name = "tabCS";
-			this.tabCS.Size = new System.Drawing.Size(904, 587);
+			this.tabCS.Size = new System.Drawing.Size(752, 554);
 			this.tabCS.TabIndex = 2;
 			this.tabCS.Text = "C# Source";
 			// 
@@ -768,9 +767,35 @@ namespace Eto_Builder {
 			this.textCS.Name = "textCS";
 			this.textCS.ReadOnly = true;
 			this.textCS.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textCS.Size = new System.Drawing.Size(904, 587);
+			this.textCS.Size = new System.Drawing.Size(752, 554);
 			this.textCS.TabIndex = 1;
 			this.textCS.WordWrap = false;
+			// 
+			// tabXML
+			// 
+			this.tabXML.Controls.Add(this.textXML);
+			this.tabXML.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tabXML.Location = new System.Drawing.Point(4, 29);
+			this.tabXML.Name = "tabXML";
+			this.tabXML.Size = new System.Drawing.Size(752, 554);
+			this.tabXML.TabIndex = 3;
+			this.tabXML.Text = "XML";
+			// 
+			// textXML
+			// 
+			this.textXML.BackColor = System.Drawing.Color.DarkSlateGray;
+			this.textXML.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textXML.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textXML.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textXML.ForeColor = System.Drawing.Color.LimeGreen;
+			this.textXML.Location = new System.Drawing.Point(0, 0);
+			this.textXML.Multiline = true;
+			this.textXML.Name = "textXML";
+			this.textXML.ReadOnly = true;
+			this.textXML.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.textXML.Size = new System.Drawing.Size(752, 554);
+			this.textXML.TabIndex = 1;
+			this.textXML.WordWrap = false;
 			// 
 			// tabVB
 			// 
@@ -798,40 +823,14 @@ namespace Eto_Builder {
 			this.textVB.TabIndex = 0;
 			this.textVB.WordWrap = false;
 			// 
-			// tabXML
+			// openFileDialog
 			// 
-			this.tabXML.Controls.Add(this.textXML);
-			this.tabXML.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tabXML.Location = new System.Drawing.Point(4, 29);
-			this.tabXML.Name = "tabXML";
-			this.tabXML.Size = new System.Drawing.Size(904, 587);
-			this.tabXML.TabIndex = 3;
-			this.tabXML.Text = "XML";
-			// 
-			// textXML
-			// 
-			this.textXML.BackColor = System.Drawing.Color.DarkSlateGray;
-			this.textXML.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textXML.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textXML.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textXML.ForeColor = System.Drawing.Color.LimeGreen;
-			this.textXML.Location = new System.Drawing.Point(0, 0);
-			this.textXML.Multiline = true;
-			this.textXML.Name = "textXML";
-			this.textXML.ReadOnly = true;
-			this.textXML.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textXML.Size = new System.Drawing.Size(904, 587);
-			this.textXML.TabIndex = 1;
-			this.textXML.WordWrap = false;
-            // 
-            // openFileDialog
-            //
-            this.openFileDialog.Filter = "EtoBuilder XML Layout Files|*.exml";
+			this.openFileDialog.Filter = "EtoBuilder XML Layout Files|*.exml";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
-			this.ClientSize = new System.Drawing.Size(760, 562);
+			this.ClientSize = new System.Drawing.Size(760, 612);
 			this.Controls.Add(this.tabControl);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Menu = this.mainMenu;
@@ -842,10 +841,10 @@ namespace Eto_Builder {
 			this.tabDesign.ResumeLayout(false);
 			this.tabCS.ResumeLayout(false);
 			this.tabCS.PerformLayout();
-			this.tabVB.ResumeLayout(false);
-			this.tabVB.PerformLayout();
 			this.tabXML.ResumeLayout(false);
 			this.tabXML.PerformLayout();
+			this.tabVB.ResumeLayout(false);
+			this.tabVB.PerformLayout();
 			this.ResumeLayout(false);
 
 		}

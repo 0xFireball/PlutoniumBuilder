@@ -200,158 +200,152 @@ namespace Eto_Builder
         
         private void InitializeComponent()
         {
-            this.listData = new System.Windows.Forms.ListBox();
-            this.listCustomControls = new System.Windows.Forms.ListBox();
-            this.listEtoForms = new System.Windows.Forms.ListBox();
-            this.listComponents = new System.Windows.Forms.ListBox();
-            this.tabEtoForms = new System.Windows.Forms.TabPage();
-            this.tabComponents = new System.Windows.Forms.TabPage();
-            this.tabData = new System.Windows.Forms.TabPage();
-            this.tabCustomControls = new System.Windows.Forms.TabPage();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabEtoForms.SuspendLayout();
-            this.tabComponents.SuspendLayout();
-            this.tabData.SuspendLayout();
-            this.tabCustomControls.SuspendLayout();
-            this.tabControl.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // listData
-            // 
-            this.listData.BackColor = System.Drawing.Color.LightSlateGray;
-            this.listData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listData.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.listData.Location = new System.Drawing.Point(0, 0);
-            this.listData.Name = "listData";
-            this.listData.Size = new System.Drawing.Size(280, 468);
-            this.listData.TabIndex = 0;
-            this.listData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.list_KeyDown);
-            this.listData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.list_MouseDown);
-            this.listData.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
-            this.listData.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
-            // 
-            // listCustomControls
-            // 
-            this.listCustomControls.BackColor = System.Drawing.Color.LightSlateGray;
-            this.listCustomControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listCustomControls.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.listCustomControls.Location = new System.Drawing.Point(0, 0);
-            this.listCustomControls.Name = "listCustomControls";
-            this.listCustomControls.Size = new System.Drawing.Size(280, 508);
-            this.listCustomControls.TabIndex = 0;
-            this.listCustomControls.KeyDown += new System.Windows.Forms.KeyEventHandler(this.list_KeyDown);
-            this.listCustomControls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.list_MouseDown);
-            this.listCustomControls.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
-            this.listCustomControls.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
-            // 
-            // listEtoForms
-            // 
-            this.listEtoForms.AllowDrop = true;
-            this.listEtoForms.BackColor = System.Drawing.Color.LightSlateGray;
-            this.listEtoForms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listEtoForms.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.listEtoForms.Location = new System.Drawing.Point(0, 0);
-            this.listEtoForms.Name = "listEtoForms";
-            this.listEtoForms.Size = new System.Drawing.Size(280, 508);
-            this.listEtoForms.TabIndex = 0;
-            this.listEtoForms.KeyDown += new System.Windows.Forms.KeyEventHandler(this.list_KeyDown);
-            this.listEtoForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.list_MouseDown);
-            this.listEtoForms.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
-            this.listEtoForms.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
-            // 
-            // listComponents
-            // 
-            this.listComponents.BackColor = System.Drawing.Color.LightSlateGray;
-            this.listComponents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listComponents.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.listComponents.Location = new System.Drawing.Point(0, 0);
-            this.listComponents.Name = "listComponents";
-            this.listComponents.Size = new System.Drawing.Size(280, 468);
-            this.listComponents.TabIndex = 0;
-            this.listComponents.KeyDown += new System.Windows.Forms.KeyEventHandler(this.list_KeyDown);
-            this.listComponents.MouseDown += new System.Windows.Forms.MouseEventHandler(this.list_MouseDown);
-            this.listComponents.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
-            this.listComponents.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
-            // 
-            // tabEtoForms
-            // 
-            this.tabEtoForms.BackColor = System.Drawing.Color.LightSlateGray;
-            this.tabEtoForms.Controls.AddRange(new System.Windows.Forms.Control[] {
-                                                                                          this.listEtoForms});
-            this.tabEtoForms.Location = new System.Drawing.Point(4, 40);
-            this.tabEtoForms.Name = "tabEtoForms";
-            this.tabEtoForms.Size = new System.Drawing.Size(280, 508);
-            this.tabEtoForms.TabIndex = 0;
-            this.tabEtoForms.Text = "Eto.Forms";
-            // 
-            // tabComponents
-            // 
-            this.tabComponents.BackColor = System.Drawing.Color.LightSlateGray;
-            this.tabComponents.Controls.AddRange(new System.Windows.Forms.Control[] {
-                                                                                        this.listComponents});
-            this.tabComponents.Location = new System.Drawing.Point(4, 40);
-            this.tabComponents.Name = "tabComponents";
-            this.tabComponents.Size = new System.Drawing.Size(280, 468);
-            this.tabComponents.TabIndex = 1;
-            this.tabComponents.Text = "Components";
-            // 
-            // tabData
-            // 
-            this.tabData.BackColor = System.Drawing.Color.LightSlateGray;
-            this.tabData.Controls.AddRange(new System.Windows.Forms.Control[] {
-                                                                                  this.listData});
-            this.tabData.Location = new System.Drawing.Point(4, 40);
-            this.tabData.Name = "tabData";
-            this.tabData.Size = new System.Drawing.Size(280, 468);
-            this.tabData.TabIndex = 2;
-            this.tabData.Text = "Data";
-            // 
-            // tabCustomControls
-            // 
-            this.tabCustomControls.BackColor = System.Drawing.Color.LightSlateGray;
-            this.tabCustomControls.Controls.AddRange(new System.Windows.Forms.Control[] {
-                                                                                            this.listCustomControls});
-            this.tabCustomControls.Location = new System.Drawing.Point(4, 40);
-            this.tabCustomControls.Name = "tabCustomControls";
-            this.tabCustomControls.Size = new System.Drawing.Size(280, 508);
-            this.tabCustomControls.TabIndex = 3;
-            this.tabCustomControls.Text = "Custom Controls";
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.AddRange(new System.Windows.Forms.Control[] {
-                                                                                     this.tabEtoForms,
-                                                                                     this.tabData,
-                                                                                     this.tabComponents,
-                                                                                     this.tabCustomControls});
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabControl.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.tabControl.ItemSize = new System.Drawing.Size(99, 18);
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Multiline = true;
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(288, 552);
-            this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
-            this.tabControl.TabIndex = 1;
-            this.tabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_DrawItem);
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
-            // 
-            // ToolboxPane
-            // 
-            this.BackColor = System.Drawing.Color.Black;
-            this.Controls.AddRange(new System.Windows.Forms.Control[] {
-                                                                          this.tabControl});
-            this.Name = "ToolboxPane";
-            this.Size = new System.Drawing.Size(288, 552);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ToolboxPane_Paint);
-            this.tabEtoForms.ResumeLayout(false);
-            this.tabComponents.ResumeLayout(false);
-            this.tabData.ResumeLayout(false);
-            this.tabCustomControls.ResumeLayout(false);
-            this.tabControl.ResumeLayout(false);
-            this.ResumeLayout(false);
+        	this.listData = new System.Windows.Forms.ListBox();
+        	this.listCustomControls = new System.Windows.Forms.ListBox();
+        	this.listEtoForms = new System.Windows.Forms.ListBox();
+        	this.listComponents = new System.Windows.Forms.ListBox();
+        	this.tabEtoForms = new System.Windows.Forms.TabPage();
+        	this.tabComponents = new System.Windows.Forms.TabPage();
+        	this.tabData = new System.Windows.Forms.TabPage();
+        	this.tabCustomControls = new System.Windows.Forms.TabPage();
+        	this.tabControl = new System.Windows.Forms.TabControl();
+        	this.tabEtoForms.SuspendLayout();
+        	this.tabComponents.SuspendLayout();
+        	this.tabData.SuspendLayout();
+        	this.tabCustomControls.SuspendLayout();
+        	this.tabControl.SuspendLayout();
+        	this.SuspendLayout();
+        	// 
+        	// listData
+        	// 
+        	this.listData.BackColor = System.Drawing.Color.OrangeRed;
+        	this.listData.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.listData.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+        	this.listData.Location = new System.Drawing.Point(0, 0);
+        	this.listData.Name = "listData";
+        	this.listData.Size = new System.Drawing.Size(280, 508);
+        	this.listData.TabIndex = 0;
+        	this.listData.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
+        	this.listData.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
+        	this.listData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.list_KeyDown);
+        	this.listData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.list_MouseDown);
+        	// 
+        	// listCustomControls
+        	// 
+        	this.listCustomControls.BackColor = System.Drawing.Color.OrangeRed;
+        	this.listCustomControls.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.listCustomControls.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+        	this.listCustomControls.Location = new System.Drawing.Point(0, 0);
+        	this.listCustomControls.Name = "listCustomControls";
+        	this.listCustomControls.Size = new System.Drawing.Size(280, 508);
+        	this.listCustomControls.TabIndex = 0;
+        	this.listCustomControls.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
+        	this.listCustomControls.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
+        	this.listCustomControls.KeyDown += new System.Windows.Forms.KeyEventHandler(this.list_KeyDown);
+        	this.listCustomControls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.list_MouseDown);
+        	// 
+        	// listEtoForms
+        	// 
+        	this.listEtoForms.AllowDrop = true;
+        	this.listEtoForms.BackColor = System.Drawing.Color.OrangeRed;
+        	this.listEtoForms.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.listEtoForms.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+        	this.listEtoForms.Location = new System.Drawing.Point(0, 0);
+        	this.listEtoForms.Name = "listEtoForms";
+        	this.listEtoForms.Size = new System.Drawing.Size(280, 508);
+        	this.listEtoForms.TabIndex = 0;
+        	this.listEtoForms.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
+        	this.listEtoForms.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
+        	this.listEtoForms.KeyDown += new System.Windows.Forms.KeyEventHandler(this.list_KeyDown);
+        	this.listEtoForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.list_MouseDown);
+        	// 
+        	// listComponents
+        	// 
+        	this.listComponents.BackColor = System.Drawing.Color.OrangeRed;
+        	this.listComponents.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.listComponents.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+        	this.listComponents.Location = new System.Drawing.Point(0, 0);
+        	this.listComponents.Name = "listComponents";
+        	this.listComponents.Size = new System.Drawing.Size(280, 508);
+        	this.listComponents.TabIndex = 0;
+        	this.listComponents.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.list_DrawItem);
+        	this.listComponents.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.list_MeasureItem);
+        	this.listComponents.KeyDown += new System.Windows.Forms.KeyEventHandler(this.list_KeyDown);
+        	this.listComponents.MouseDown += new System.Windows.Forms.MouseEventHandler(this.list_MouseDown);
+        	// 
+        	// tabEtoForms
+        	// 
+        	this.tabEtoForms.BackColor = System.Drawing.Color.OrangeRed;
+        	this.tabEtoForms.Controls.Add(this.listEtoForms);
+        	this.tabEtoForms.Location = new System.Drawing.Point(4, 40);
+        	this.tabEtoForms.Name = "tabEtoForms";
+        	this.tabEtoForms.Size = new System.Drawing.Size(280, 508);
+        	this.tabEtoForms.TabIndex = 0;
+        	this.tabEtoForms.Text = "Eto.Forms";
+        	// 
+        	// tabComponents
+        	// 
+        	this.tabComponents.BackColor = System.Drawing.Color.OrangeRed;
+        	this.tabComponents.Controls.Add(this.listComponents);
+        	this.tabComponents.Location = new System.Drawing.Point(4, 40);
+        	this.tabComponents.Name = "tabComponents";
+        	this.tabComponents.Size = new System.Drawing.Size(280, 508);
+        	this.tabComponents.TabIndex = 1;
+        	this.tabComponents.Text = "Components";
+        	// 
+        	// tabData
+        	// 
+        	this.tabData.BackColor = System.Drawing.Color.OrangeRed;
+        	this.tabData.Controls.Add(this.listData);
+        	this.tabData.Location = new System.Drawing.Point(4, 40);
+        	this.tabData.Name = "tabData";
+        	this.tabData.Size = new System.Drawing.Size(280, 508);
+        	this.tabData.TabIndex = 2;
+        	this.tabData.Text = "Data";
+        	// 
+        	// tabCustomControls
+        	// 
+        	this.tabCustomControls.BackColor = System.Drawing.Color.OrangeRed;
+        	this.tabCustomControls.Controls.Add(this.listCustomControls);
+        	this.tabCustomControls.Location = new System.Drawing.Point(4, 40);
+        	this.tabCustomControls.Name = "tabCustomControls";
+        	this.tabCustomControls.Size = new System.Drawing.Size(280, 508);
+        	this.tabCustomControls.TabIndex = 3;
+        	this.tabCustomControls.Text = "Custom Controls";
+        	// 
+        	// tabControl
+        	// 
+        	this.tabControl.Controls.Add(this.tabEtoForms);
+        	this.tabControl.Controls.Add(this.tabData);
+        	this.tabControl.Controls.Add(this.tabComponents);
+        	this.tabControl.Controls.Add(this.tabCustomControls);
+        	this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+        	this.tabControl.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.tabControl.ItemSize = new System.Drawing.Size(99, 18);
+        	this.tabControl.Location = new System.Drawing.Point(0, 0);
+        	this.tabControl.Multiline = true;
+        	this.tabControl.Name = "tabControl";
+        	this.tabControl.SelectedIndex = 0;
+        	this.tabControl.Size = new System.Drawing.Size(288, 552);
+        	this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+        	this.tabControl.TabIndex = 1;
+        	this.tabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_DrawItem);
+        	this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
+        	// 
+        	// ToolboxPane
+        	// 
+        	this.BackColor = System.Drawing.Color.Black;
+        	this.Controls.Add(this.tabControl);
+        	this.Name = "ToolboxPane";
+        	this.Size = new System.Drawing.Size(288, 552);
+        	this.Paint += new System.Windows.Forms.PaintEventHandler(this.ToolboxPane_Paint);
+        	this.tabEtoForms.ResumeLayout(false);
+        	this.tabComponents.ResumeLayout(false);
+        	this.tabData.ResumeLayout(false);
+        	this.tabCustomControls.ResumeLayout(false);
+        	this.tabControl.ResumeLayout(false);
+        	this.ResumeLayout(false);
 
         }
         #endregion
@@ -414,7 +408,7 @@ namespace Eto_Builder
             }
             else
             {
-                e.Graphics.FillRectangle(Brushes.LightSlateGray, e.Bounds);
+                e.Graphics.FillRectangle(Brushes.OrangeRed, e.Bounds);
             }
 
             ToolboxItem tbi = lbSender.Items[e.Index] as ToolboxItem;

@@ -99,6 +99,9 @@
     <EmbeddedResource Include="ServiceRequests.resx">
       <DependentUpon>ServiceRequests.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ToolboxPane.resx">
+      <DependentUpon>ToolboxPane.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
