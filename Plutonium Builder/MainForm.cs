@@ -750,7 +750,7 @@ namespace Eto_Builder
             this.tabCS.Name = "tabCS";
             this.tabCS.Size = new System.Drawing.Size(752, 604);
             this.tabCS.TabIndex = 2;
-            this.tabCS.Text = "C# Source";
+            this.tabCS.Text = "C# (Eto)";
             //
             // textCS
             //
