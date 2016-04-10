@@ -1,36 +1,34 @@
-
 namespace EtoDesignerHost
 {
     using System;
+    using System.CodeDom;
+    using System.CodeDom.Compiler;
+    using System.Collections;
     using System.ComponentModel;
     using System.ComponentModel.Design;
     using System.ComponentModel.Design.Serialization;
-    using System.Collections;
     using System.Diagnostics;
     using System.Globalization;
     using System.IO;
     using System.Reflection;
     using System.Runtime.Serialization.Formatters.Binary;
-    using System.Text;
     using System.Windows.Forms;
     using System.Xml;
-    using System.CodeDom.Compiler;
-    using System.CodeDom;
+    using Eto_Builder.EtoPatcher;
     using Microsoft.CSharp;
     using Microsoft.VisualBasic;
-    using Eto_Builder.EtoPatcher;
 
     /// This is a designer loader that is based on XML.  We use reflection
     /// to write out values into an XML document.  The techniques used in this
     /// designer loader to discover, via reflection, the properties and
     /// objects that need to be saved or loaded can be applied to any
     /// persistence format.
-    /// 
+    ///
     /// The XML format we use here is not terribly user-friendly, but
     /// is fairly straightforward.  It handles the vast majority of
     /// persistence requirements including collections, instance descriptors,
     /// and binary data.
-    /// 
+    ///
     /// In addition to maintaining the buffer in the form of an XmlDocument,
     /// we also maintain it in a CodeCompileUnit. We use this DOM to generate
     /// C# and VB code, as well as to compile the buffer into an executable.
@@ -233,7 +231,6 @@ namespace EtoDesignerHost
                                         }));
             td.Members.Add(main);
 
-
             ns.Types.Add(td);
             code.Namespaces.Add(ns);
 
@@ -254,7 +251,7 @@ namespace EtoDesignerHost
         {
             // The main form's TabControl was added to the host's lists of services
             // just so we could get at it here. Fortunately for us, each tab page
-            // has but one Control--a textbox. 
+            // has but one Control--a textbox.
             //
             TabControl tc = host.GetService(typeof(TabControl)) as TabControl;
             TextBox csWindow = tc.TabPages[1].Controls[0] as TextBox;
@@ -279,7 +276,7 @@ namespace EtoDesignerHost
             */
             csWindow.Text = GenerateEtoCodeFromDom(cs, codeCompileUnit);
             // XML Output
-            
+
             sw = new StringWriter();
             XmlTextWriter xtw = new XmlTextWriter(sw);
             xtw.Formatting = Formatting.Indented;
@@ -291,7 +288,6 @@ namespace EtoDesignerHost
             cleanup = cleanup.Replace("</DOCUMENT_ELEMENT>", "");
             xmlWindow.Text = cleanup;
             sw.Close();
-            
         }
 
         /// Simple helper method that returns true if the given type converter supports
@@ -315,7 +311,7 @@ namespace EtoDesignerHost
             unsaved = true;
         }
 
-        /// This method prompts the user to see if it is OK to dispose this document.  
+        /// This method prompts the user to see if it is OK to dispose this document.
         /// The prompt only happens if the user has made changes.
         internal bool PromptDispose()
         {
@@ -326,6 +322,7 @@ namespace EtoDesignerHost
                     case DialogResult.Yes:
                         Save(false);
                         break;
+
                     case DialogResult.Cancel:
                         return false;
                 }
@@ -377,13 +374,13 @@ namespace EtoDesignerHost
             }
         }
 
-        /// This method is used to parse the given file.  Before calling this 
+        /// This method is used to parse the given file.  Before calling this
         /// method the host member variable must be setup.  This method will
         /// create a data set, read the data set from the XML stored in the
         /// file, and then walk through the data set and create components
         /// stored within it.  The data set is stored in the persistedData
         /// member variable upon return.
-        /// 
+        ///
         /// This method never throws exceptions.  It will set the successful
         /// ref parameter to false when there are catastrophic errors it can't
         /// resolve (like being unable to parse the XML).  All error exceptions
@@ -484,7 +481,7 @@ namespace EtoDesignerHost
             InstanceDescriptor id = new InstanceDescriptor(mi, args);
             object instance = id.Invoke();
 
-            // Ok, we have our object.  Now, check to see if there are any properties, and if there are, 
+            // Ok, we have our object.  Now, check to see if there are any properties, and if there are,
             // set them.
             //
             foreach (XmlNode prop in node.ChildNodes)
@@ -766,7 +763,7 @@ namespace EtoDesignerHost
 
         /// This method writes a given byte[] into the XML document, returning the node that
         /// it just created.  Byte arrays have the following XML:
-        /// 
+        ///
         /// <c>
         /// <Binary>
         ///		64 bit encoded string representing binary data
@@ -795,7 +792,7 @@ namespace EtoDesignerHost
 
         /// This method writes a given instance descriptor into the XML document, returning a node
         /// that it just created.  Instance descriptors have the following XML:
-        /// 
+        ///
         /// <c>
         /// <InstanceDescriptor member="asdfasdfasdf">
         ///		<Object>
@@ -803,7 +800,7 @@ namespace EtoDesignerHost
         ///		</Object>
         /// </InstanceDescriptor>
         /// </c>
-        /// 
+        ///
         /// Here, member is a 64 bit encoded string representing the member, and there is one Parameter
         /// tag for each parameter of the descriptor.
         private XmlNode WriteInstanceDescriptor(XmlDocument document, InstanceDescriptor desc, object value)
@@ -825,7 +822,7 @@ namespace EtoDesignerHost
                 }
             }
 
-            // Instance descriptors also support "partial" creation, where 
+            // Instance descriptors also support "partial" creation, where
             // properties must also be persisted.
             //
             if (!desc.IsComplete)
@@ -839,22 +836,22 @@ namespace EtoDesignerHost
 
         /// This method writes the given object out to the XML document.  Objects have
         /// the following XML:
-        /// 
+        ///
         /// <c>
         /// <Object type="<object type>" name="<object name>" children="<child property name>">
-        /// 
+        ///
         /// </Object>
         /// </c>
-        /// 
+        ///
         /// Here, Object is the element that defines a custom object.  Type is required
         /// and specifies the data type of the object.  Name is optional.  If present, it names
         /// this object, adding it to the container if the object is an IComponent.
         /// Finally, the children attribute is optional.  If present, this object can have
         /// nested objects, and those objects will be added to the given property name.  The
         /// property must be a collection property that returns an object that implements IList.
-        /// 
+        ///
         /// Inside the object tag there can be zero or more of the following subtags:
-        /// 
+        ///
         ///		InstanceDescriptor -- describes how to create an instance of the object.
         ///		Property -- a property set on the object
         ///		Event -- an event binding
@@ -960,7 +957,7 @@ namespace EtoDesignerHost
             return node;
         }
 
-        /// This method writes zero or more property elements into the given parent node.  
+        /// This method writes zero or more property elements into the given parent node.
         private void WriteProperties(XmlDocument document, PropertyDescriptorCollection properties, object value, XmlNode parent, string elementName)
         {
             foreach (PropertyDescriptor prop in properties)
@@ -988,7 +985,7 @@ namespace EtoDesignerHost
                             break;
 
                         case DesignerSerializationVisibility.Content:
-                            // A "Content" property needs to have its properties stored here, not the actual value.  We 
+                            // A "Content" property needs to have its properties stored here, not the actual value.  We
                             // do another special case here to account for collections.  Collections are content properties
                             // that implement IList and are read-only.
                             //
@@ -1018,7 +1015,7 @@ namespace EtoDesignerHost
 
         /// Writes a reference to the given component.  Emits the following
         /// XML:
-        /// 
+        ///
         /// <c>
         /// <Reference name="component name"></Reference>
         /// </c>
@@ -1057,7 +1054,7 @@ namespace EtoDesignerHost
             else if (GetConversionSupported(converter, typeof(byte[])))
             {
                 // Binary blobs are converted by encoding as a binary element.
-                // 
+                //
                 byte[] data = (byte[])converter.ConvertTo(null, CultureInfo.InvariantCulture, value, typeof(byte[]));
                 parent.AppendChild(WriteBinary(document, data));
             }
@@ -1119,7 +1116,6 @@ namespace EtoDesignerHost
                     Flush();
                 }
 
-
                 // If the buffer has no name or this is a "Save As...",
                 // prompt the user for a file name. The user can save
                 // either the C#, VB, or XML (though only the XML can be loaded).
@@ -1131,7 +1127,7 @@ namespace EtoDesignerHost
                 {
                     SaveFileDialog dlg = new SaveFileDialog();
                     dlg.DefaultExt = supportedExt;
-                    dlg.Filter = "C# Files|*.cs|Visual Basic Files|*.vb|PlutoniumBuilder XML Layout Files|*."+supportedExt;
+                    dlg.Filter = "C# Files|*.cs|Visual Basic Files|*.vb|PlutoniumBuilder XML Layout Files|*." + supportedExt;
                     dlg.FilterIndex = filterIndex;
 
                     if (dlg.ShowDialog() == DialogResult.OK)
@@ -1159,6 +1155,7 @@ namespace EtoDesignerHost
                                 sw.Close();
                             }
                             break;
+
                         case 2:
                             {
                                 // Generate VB code from our codeCompileUnit and save it.
@@ -1173,6 +1170,7 @@ namespace EtoDesignerHost
                                 sw.Close();
                             }
                             break;
+
                         case 3:
                             {
                                 // Write out our xmlDocument to a file.
@@ -1207,17 +1205,17 @@ namespace EtoDesignerHost
             }
         }
 
-        static string PatchCodeToEtoCode(string regularCode)
+        private static string PatchCodeToEtoCode(string regularCode)
         {
             return EtoPatcher.PatchCode(regularCode);
         }
 
-        static string GenerateEtoCodeFromDom(CodeDomProvider provider, CodeCompileUnit compileunit)
+        private static string GenerateEtoCodeFromDom(CodeDomProvider provider, CodeCompileUnit compileunit)
         {
             return PatchCodeToEtoCode(GenerateCodeFromDom(provider, compileunit));
         }
 
-        static string GenerateCodeFromDom(CodeDomProvider provider, CodeCompileUnit compileunit)
+        private static string GenerateCodeFromDom(CodeDomProvider provider, CodeCompileUnit compileunit)
         {
             string ret;
             StringWriter tw = new StringWriter();
@@ -1336,4 +1334,3 @@ namespace EtoDesignerHost
         }
     }
 }
-

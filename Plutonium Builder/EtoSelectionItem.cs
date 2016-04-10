@@ -1,27 +1,28 @@
-
-namespace EtoDesignerHost {
-
+namespace EtoDesignerHost
+{
     using System;
     using System.ComponentModel;
-    using System.ComponentModel.Design;
-    using System.Windows.Forms;
 
     // This class represents a single selected object.
-    internal class EtoSelectionItem {
-
+    internal class EtoSelectionItem
+    {
         // Public objects this selection deals with
-        private Component                 component;      // the component that's selected
-        private EtoSelectionService    selectionMgr;   // host interface
-        private bool                      primary;        // is this the primary selection?
+        private Component component;      // the component that's selected
+
+        private EtoSelectionService selectionMgr;   // host interface
+        private bool primary;        // is this the primary selection?
 
         ///  Constructor
-        internal EtoSelectionItem(EtoSelectionService selectionMgr, Component component) {
+        internal EtoSelectionItem(EtoSelectionService selectionMgr, Component component)
+        {
             this.component = component;
             this.selectionMgr = selectionMgr;
         }
 
-        internal Component Component {
-            get {
+        internal Component Component
+        {
+            get
+            {
                 return component;
             }
         }
@@ -30,12 +31,16 @@ namespace EtoDesignerHost {
         ///     different set of grab handles and generally supports sizing. The caller must
         ///     verify that there is only one primary object; this merely updates the
         ///     UI.
-        internal virtual bool Primary {
-            get {
+        internal virtual bool Primary
+        {
+            get
+            {
                 return primary;
             }
-            set {
-                if (this.primary != value) {
+            set
+            {
+                if (this.primary != value)
+                {
                     this.primary = value;
                     if (SelectionItemInvalidate != null)
                         SelectionItemInvalidate(this, EventArgs.Empty);
@@ -43,13 +48,16 @@ namespace EtoDesignerHost {
             }
         }
 
-        internal event EventHandler EtoSelectionItemDispose ;
-        internal event EventHandler SelectionItemInvalidate ;
+        internal event EventHandler EtoSelectionItemDispose;
+
+        internal event EventHandler SelectionItemInvalidate;
 
         ///     Disposes of this selection.  We dispose of our region object if it still exists and we
         ///     invalidate our UI so that we don't leave any turds laying around.
-        internal virtual void Dispose() {
-            if (primary) {
+        internal virtual void Dispose()
+        {
+            if (primary)
+            {
                 selectionMgr.SetPrimarySelection((EtoSelectionItem)null);
             }
 
@@ -57,5 +65,4 @@ namespace EtoDesignerHost {
                 EtoSelectionItemDispose(this, EventArgs.Empty);
         }
     }
-
 }

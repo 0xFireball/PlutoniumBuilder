@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 namespace Eto_Builder.EtoPatcher
@@ -28,6 +25,7 @@ namespace Eto_Builder.EtoPatcher
             patchedCode = StitchLines(patchedCodeLines.ToArray());
             return patchedCode;
         }
+
         public static string PatchTypeName(string code)
         {
             var patchedCode = code;
@@ -35,6 +33,15 @@ namespace Eto_Builder.EtoPatcher
             patchedCode = patchedCode.Replace("System.Drawing", "Eto.Drawing");
             return patchedCode;
         }
+
+        public static string PatchAnalagousClasses(string code)
+        {
+            var patchedCode = code;
+            patchedCode = patchedCode.Replace("RichTextBox", "RichTextArea");
+            patchedCode = patchedCode.Replace("PictureBox", "ImageView");
+            return patchedCode;
+        }
+
         public static string PatchCodeLine(string code)
         {
             var patchedCode = code;
@@ -42,12 +49,14 @@ namespace Eto_Builder.EtoPatcher
             patchedCode = PatchAppStart(patchedCode);
             return patchedCode;
         }
+
         public static string PatchProperties(string code)
         {
             var patchedCode = code;
             patchedCode = patchedCode.ReplaceWildcard("*.Name*", "");
             return patchedCode;
         }
+
         public static string PatchAppStart(string code)
         {
             var patchedCode = code;
@@ -55,15 +64,18 @@ namespace Eto_Builder.EtoPatcher
             patchedCode = Regex.Replace(patchedCode, @"ResumeLayout\((?:(?!\))(?:.|\n))*\)", "ResumeLayout()");
             return patchedCode;
         }
+
         public static string StitchLines(string[] lines)
         {
             return string.Join("\r\n", lines);
         }
+
         public static string ReplaceWildcard(this string s, string pattern, string replacement)
         {
             var rpattern = WildcardToRegex(pattern);
             return Regex.Replace(s, rpattern, replacement);
         }
+
         public static string WildcardToRegex(string pattern)
         {
             return "^" + Regex.Escape(pattern)

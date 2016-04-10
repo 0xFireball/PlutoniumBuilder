@@ -1,70 +1,67 @@
-
 using System;
 using System.ComponentModel;
 
 namespace Eto_Builder
 {
-	/// A nearly empty implementation of ISite, this class merely passes on
-	/// service requests to the host. It is required when we add the events
-	/// tab to our property grid.
-	public class PropertyGridSite : System.ComponentModel.ISite
-	{
-		private IServiceProvider sp;
-		private IComponent component;
+    /// A nearly empty implementation of ISite, this class merely passes on
+    /// service requests to the host. It is required when we add the events
+    /// tab to our property grid.
+    public class PropertyGridSite : System.ComponentModel.ISite
+    {
+        private IServiceProvider sp;
+        private IComponent component;
 
-		public PropertyGridSite(IServiceProvider sp, IComponent component)
-		{
-			this.sp = sp;
-			this.component = component;
-		}
-		#region Implementation of ISite
+        public PropertyGridSite(IServiceProvider sp, IComponent component)
+        {
+            this.sp = sp;
+            this.component = component;
+        }
 
-		public System.ComponentModel.IComponent Component
-		{
-			get
-			{
-				return component;
-			}
-		}
+        #region Implementation of ISite
 
-		public System.ComponentModel.IContainer Container
-		{
-			get
-			{
-				return null;
-			}
-		}
+        public System.ComponentModel.IComponent Component
+        {
+            get
+            {
+                return component;
+            }
+        }
 
-		public bool DesignMode
-		{
-			get
-			{
-				return false;
-			}
-		}
+        public System.ComponentModel.IContainer Container
+        {
+            get
+            {
+                return null;
+            }
+        }
 
-		public string Name
-		{
-			get
-			{
-				return null;
-			}
-			set {}
-		}
+        public bool DesignMode
+        {
+            get
+            {
+                return false;
+            }
+        }
 
-		#endregion
+        public string Name
+        {
+            get { return null; }
+            set { }
+        }
 
-		#region Implementation of IServiceProvider
+        #endregion Implementation of ISite
 
-		public object GetService(Type serviceType)
-		{
-			if (sp != null)
-			{
-				return sp.GetService(serviceType);
-			}
-			return null;
-		}
+        #region Implementation of IServiceProvider
 
-		#endregion
-	}
+        public object GetService(Type serviceType)
+        {
+            if (sp != null)
+            {
+                return sp.GetService(serviceType);
+            }
+            return null;
+        }
+
+        #endregion Implementation of IServiceProvider
+    }
 }
